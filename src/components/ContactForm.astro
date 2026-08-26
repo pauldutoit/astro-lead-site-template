@@ -7,7 +7,7 @@ const { city = '', intent = '' } = Astro.props;
 const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 ---
 
-<form id="lead-form" class="lead-form" data-city={city} data-intent={intent}>
+<form id="lead-form" class="lead-form card" data-city={city} data-intent={intent}>
   <div class="field">
     <label for="name">Name</label>
     <input id="name" name="name" type="text" required />
@@ -35,7 +35,7 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
     <div class="cf-turnstile" data-sitekey={turnstileSiteKey}></div>
   )}
 
-  <button type="submit">Send</button>
+  <button type="submit" class="btn btn-accent btn-block">Send</button>
   <p class="form-status" data-status role="status"></p>
 </form>
 
@@ -44,16 +44,27 @@ const turnstileSiteKey = import.meta.env.PUBLIC_TURNSTILE_SITE_KEY ?? '';
 )}
 
 <style>
-  .lead-form { display: grid; gap: 0.75rem; max-width: 480px; }
-  .field { display: grid; gap: 0.25rem; }
-  label { font-size: 0.85rem; font-weight: 600; }
-  input, textarea { padding: 0.6rem; border: 1px solid #ccc; border-radius: 6px; font: inherit; }
+  .lead-form { display: grid; gap: 1rem; max-width: 480px; }
+  .field { display: grid; gap: 0.35rem; }
+  label { font-size: 0.85rem; font-weight: 700; color: var(--color-ink); }
+  input, textarea {
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font: inherit;
+    color: var(--color-ink);
+    background: var(--color-surface);
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  }
+  input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-tint);
+  }
   .honeypot { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
-  button { justify-self: start; padding: 0.7rem 1.5rem; background: var(--color-primary); color: #fff; border: none; border-radius: 6px; font-weight: 600; cursor: pointer; }
-  button:disabled { opacity: 0.6; cursor: not-allowed; }
-  .form-status { font-size: 0.9rem; min-height: 1.2em; }
+  .form-status { font-size: 0.9rem; min-height: 1.2em; margin: 0; }
   .form-status[data-state='error'] { color: #b00020; }
-  .form-status[data-state='success'] { color: #1a5f3f; }
+  .form-status[data-state='success'] { color: var(--color-primary-dark); }
 </style>
 
 <script>
