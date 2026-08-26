@@ -1,0 +1,49 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ContactForm from '../components/ContactForm.astro';
+import cities from '../data/cities.json';
+import intents from '../data/intents.json';
+
+export async function getStaticPaths() {
+  const entries = await getCollection('cityContent');
+  return entries.map((entry) => ({
+    params: { intentSlug: entry.data.intentSlug, citySlug: entry.data.citySlug },
+    props: { entry },
+  }));
+}
+
+const { entry } = Astro.props;
+const { Content } = await render(entry);
+const { city, citySlug, intent, intentSlug, indexable, metaTitle, metaDescription } = entry.data;
+
+// Internal links: other services in the same city, and this same service in nearby cities.
+// These stay as plain links regardless of indexable status, so PageRank still flows to
+// gated (noindex) pages through crawlable internal links - see the indexation-gate note below.
+const otherIntentsSameCity = intents.filter((i) => i.slug !== intentSlug);
+const sameIntentOtherCities = cities.filter((c) => c.slug !== citySlug);
+---
+
+<BaseLayout title={metaTitle} description={metaDescription} indexable={indexable}>
+  <nav aria-label="breadcrumb"><a href="/">Home</a> / {intent} / {city}</nav>
+  <h1>{intent} in {city}</h1>
+
+  <Content />
+
+  <h2>Other services in {city}</h2>
+  <ul>
+    {otherIntentsSameCity.map((i) => (
+      <li><a href={`/${i.slug}-${citySlug}/`}>{i.label} in {city}</a></li>
+    ))}
+  </ul>
+
+  <h2>{intent} in nearby areas</h2>
+  <ul>
+    {sameIntentOtherCities.map((c) => (
+      <li><a href={`/${intentSlug}-${c.slug}/`}>{intent} in {c.name}</a></li>
+    ))}
+  </ul>
+
+  <h2>Request a callback</h2>
+  <ContactForm city={city} intent={intent} />
+</BaseLayout>
