@@ -12,5 +12,27 @@
   "accentColor": "#e8590c",
   "locale": "en-GB",
   "legalName": "Example Local Services Ltd",
-  "legalAddress": "1 Example Street, London, UK"
+  "legalAddress": "1 Example Street, London, UK",
+  "aggregateRating": { "value": 4.8, "count": 132 },
+  "stats": [
+    { "value": "2,400+", "label": "Jobs completed" },
+    { "value": "4.8/5", "label": "Average rating" },
+    { "value": "< 24h", "label": "Typical response time" },
+    { "value": "10yr", "label": "Workmanship guarantee" }
+  ],
+  "howItWorks": [
+    { "title": "Tell us what you need", "description": "Fill in the form or call us with a few details about the job." },
+    { "title": "Get a fast quote", "description": "We get back to you the same day with clear, upfront pricing." },
+    { "title": "We get it done", "description": "A local, insured engineer completes the work to a high standard." }
+  ],
+  "testimonials": [
+    { "name": "PLACEHOLDER - replace with a real review", "location": "London", "quote": "Replace this with a genuine customer quote before going live - never invent reviews.", "rating": 5 },
+    { "name": "PLACEHOLDER - replace with a real review", "location": "Manchester", "quote": "Replace this with a genuine customer quote before going live - never invent reviews.", "rating": 5 },
+    { "name": "PLACEHOLDER - replace with a real review", "location": "Birmingham", "quote": "Replace this with a genuine customer quote before going live - never invent reviews.", "rating": 5 }
+  ],
+  "faq": [
+    { "question": "How quickly can you come out?", "answer": "Replace with a real answer for this business." },
+    { "question": "Do you offer free quotes?", "answer": "Replace with a real answer for this business." },
+    { "question": "Are you insured and certified?", "answer": "Replace with a real answer for this business." }
+  ]
 }
