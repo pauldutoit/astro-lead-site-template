@@ -1,26 +1,29 @@
 [
   {
-    "slug": "emergency-repair",
-    "label": "Emergency Repair",
-    "shortLabel": "Emergency Repair",
-    "searchIntent": "someone needs urgent same-day help",
+    "slug": "service-one",
+    "label": "Service One",
+    "shortLabel": "Service One",
+    "searchIntent": "PLACEHOLDER - describe what the searcher wants for this service, e.g. 'someone wants new casement windows and is comparing quotes'",
+    "priceFrom": "From £350",
+    "basePriceRange": [350, 900],
+    "icon": "🔨"
+  },
+  {
+    "slug": "service-two",
+    "label": "Service Two",
+    "shortLabel": "Service Two",
+    "searchIntent": "PLACEHOLDER - describe what the searcher wants for this service",
+    "priceFrom": "From £600",
+    "basePriceRange": [600, 1200],
+    "icon": "🏠"
+  },
+  {
+    "slug": "service-three",
+    "label": "Service Three",
+    "shortLabel": "Service Three",
+    "searchIntent": "PLACEHOLDER - describe what the searcher wants for this service",
     "priceFrom": "From £89",
-    "icon": "\ud83d\udd27"
-  },
-  {
-    "slug": "installation",
-    "label": "New Installation",
-    "shortLabel": "Installation",
-    "searchIntent": "someone is planning a new installation and comparing quotes",
-    "priceFrom": "From £450",
-    "icon": "\ud83d\udd28"
-  },
-  {
-    "slug": "maintenance",
-    "label": "Maintenance & Servicing",
-    "shortLabel": "Maintenance",
-    "searchIntent": "someone wants a recurring or one-off maintenance visit",
-    "priceFrom": "From £59",
-    "icon": "\ud83d\udee0\ufe0f"
+    "basePriceRange": [89, 250],
+    "icon": "🔧"
   }
 ]
