@@ -11,6 +11,9 @@ export const ICONS: Record<string, string> = {
   // Roofline: house profile with visible roof edge, fascia line, gutter run
   // and downpipe - the four elements the trade actually sells.
   roofline: '<path d="M4 17 18 5l14 12"/><line x1="4" y1="20" x2="32" y2="20"/><path d="M4 23 Q 4 26 7 26 L 29 26 Q 32 26 32 23"/><line x1="10" y1="26" x2="10" y2="31"/>',
+  // Sash window: Georgian 6-over-6 silhouette with arched top - reads as
+  // heritage/period rather than the plain "window" tile.
+  sashwindow: '<path d="M6 8 Q 6 4 10 4 L 26 4 Q 30 4 30 8 L 30 32 L 6 32 Z"/><line x1="6" y1="18" x2="30" y2="18"/><line x1="14" y1="4" x2="14" y2="18"/><line x1="22" y1="4" x2="22" y2="18"/><line x1="14" y1="18" x2="14" y2="32"/><line x1="22" y1="18" x2="22" y2="32"/><line x1="6" y1="25" x2="30" y2="25"/><line x1="6" y1="11" x2="30" y2="11"/>',
 };
 
 export function getInitials(name: string): string {

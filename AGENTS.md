@@ -8,6 +8,24 @@ astro dev --background
 
 Manage the background server with `astro dev stop`, `astro dev status`, and `astro dev logs`.
 
+## Working from a `.claude/worktrees/*` worktree
+
+If you are in an isolated worktree (path contains `.claude/worktrees/`), Vite's
+tsconfig resolver walks up the tree and finds the parent checkout's
+`tsconfig.json`. That file also `extends "astro/tsconfigs/strict"`, so if the
+parent checkout has no `node_modules` the extends fails with
+`Tsconfig not found astro/tsconfigs/strict` during `astro sync` or `astro build`.
+
+Fix: make sure the parent checkout (the real repo root, not the worktree) has a
+`node_modules`. Cheapest option — symlink from the parent to the worktree's
+copy, since they share the same lockfile:
+
+```
+ln -s <worktree>/node_modules <parent-checkout>/node_modules
+```
+
+Or run `npm install` at both levels. Do this once per site.
+
 ## Documentation
 
 Full documentation: https://docs.astro.build
